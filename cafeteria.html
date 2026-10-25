@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Café Aurora | Café y momentos especiales</title>
+
+    <meta name="description"
+          content="Descubre Café Aurora, un espacio para disfrutar café de especialidad, postres y buenos momentos.">
+
+    <style>
+        /* 1. ESTILOS GENERALES */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf6ef;
+            color: #35251e;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* 2. BARRA DE NAVEGACION */
+
+        header {
+            background-color: #35251e;
+            color: white;
+            padding: 18px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #e6bc83;
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a:hover {
+            color: #e6bc83;
+        }
+
+        /* 3. PORTADA PRINCIPAL */
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(35, 23, 17, 0.90),
+                    rgba(35, 23, 17, 0.25)
+                ),
+                url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1600&q=85")
+                center / cover no-repeat;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .hero-contenido {
+            max-width: 600px;
+        }
+
+        .etiqueta {
+            color: #e6bc83;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: clamp(38px, 6vw, 65px);
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 28px;
+        }
+
+        .boton {
+            display: inline-block;
+            background-color: #b77943;
+            color: white;
+            padding: 13px 24px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background-color: #925b31;
+            transform: translateY(-2px);
+        }
+
+        /* 4. SECCIONES */
+
+        section {
+            padding: 75px 0;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .titulo-seccion h2 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .titulo-seccion p {
+            color: #78665a;
+        }
+
+        /* 5. MENU DE PRODUCTOS */
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .producto {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(53, 37, 30, 0.08);
+            transition: 0.3s;
+        }
+
+        .producto:hover {
+            transform: translateY(-5px);
+        }
+
+        .producto img {
+            display: block;
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .producto-info {
+            padding: 20px;
+        }
+
+        .producto-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .producto-info p {
+            color: #78665a;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .precio {
+            color: #9b612f;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* 6. SOBRE NOSOTROS */
+
+        .sobre {
+            background-color: #eee4d6;
+        }
+
+        .sobre-contenido {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .sobre-contenido p {
+            margin-top: 15px;
+            color: #665449;
+        }
+
+        /* 7. HORARIOS Y CONTACTO */
+
+        .contacto {
+            text-align: center;
+        }
+
+        .contacto p {
+            margin: 10px 0;
+        }
+
+        .contacto .boton {
+            margin-top: 18px;
+        }
+
+        /* 8. PIE DE PAGINA */
+
+        footer {
+            background-color: #35251e;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        /* 9. ADAPTACION A CELULARES */
+
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero {
+                min-height: 430px;
+                padding: 60px 0;
+            }
+
+            .productos {
+                grid-template-columns: 1fr;
+            }
+
+            .producto img {
+                height: 230px;
+            }
+
+            .titulo-seccion h2 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 55px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BARRA DE NAVEGACION -->
+
+    <header>
+        <div class="contenedor navbar">
+
+            <a href="#inicio" class="logo">☕ Café Aurora</a>
+
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#menu">Menú</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- PORTADA -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+            <div class="contenedor hero-contenido">
+
+                <span class="etiqueta">Tu momento favorito</span>
+
+                <h1>Un buen café cambia tu día.</h1>
+
+                <p>
+                    Café recién preparado, postres deliciosos
+                    y un espacio perfecto para disfrutar cada momento.
+                </p>
+
+                <a href="#menu" class="boton">Descubrir nuestro menú</a>
+
+            </div>
+        </section>
+
+        <!-- MENU -->
+
+        <section id="menu">
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <h2>Nuestros favoritos</h2>
+                    <p>Pequeños placeres preparados con cariño.</p>
+                </div>
+
+                <div class="productos">
+
+                    <article class="producto">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80"
+                            alt="Café latte servido en una taza">
+
+                        <div class="producto-info">
+                            <h3>Latte artesanal</h3>
+
+                            <p>
+                                Espresso con leche cremosa,
+                                ideal para comenzar el día.
+                            </p>
+
+                            <span class="precio">$55 MXN</span>
+                        </div>
+
+                    </article>
+
+                    <article class="producto">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80"
+                            alt="Taza de café recién preparado">
+
+                        <div class="producto-info">
+                            <h3>Americano</h3>
+
+                            <p>
+                                Café intenso y aromático
+                                para los amantes de lo clásico.
+                            </p>
+
+                            <span class="precio">$40 MXN</span>
+                        </div>
+
+                    </article>
+
+                    <article class="producto">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80"
+                            alt="Pastel de chocolate">
+
+                        <div class="producto-info">
+                            <h3>Pastel de chocolate</h3>
+
+                            <p>
+                                Un postre suave y delicioso
+                                para acompañar tu bebida.
+                            </p>
+
+                            <span class="precio">$65 MXN</span>
+                        </div>
+
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE NOSOTROS -->
+
+        <section class="sobre" id="nosotros">
+            <div class="contenedor sobre-contenido">
+
+                <span class="etiqueta">Nuestra esencia</span>
+
+                <h2>Más que café, momentos especiales.</h2>
+
+                <p>
+                    En Café Aurora creemos que los mejores momentos
+                    comienzan con una buena taza de café.
+                    Creamos un espacio acogedor para conversar,
+                    estudiar, trabajar o simplemente relajarte.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+
+        <section class="contacto" id="contacto">
+            <div class="contenedor">
+
+                <div class="titulo-seccion">
+                    <h2>Ven a visitarnos</h2>
+                    <p>Nos encantará recibirte.</p>
+                </div>
+
+                <p><strong>Horario:</strong> Lunes a sábado, 8:00–20:00</p>
+
+                <p><strong>Ubicación:</strong> Los Mochis, Sinaloa (ejemplo)</p>
+
+                <p><strong>Teléfono:</strong> 668 000 0000 (ejemplo)</p>
+
+                <!-- Sustituye el enlace por el WhatsApp del negocio -->
+
+                <a
+                    class="boton"
+                    href="https://wa.me/526680000000?text=Hola%2C%20me%20gustar%C3%ADa%20conocer%20el%20men%C3%BA"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Contactar por WhatsApp
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+
+    <footer>
+        <p>© 2026 Café Aurora · Proyecto de demostración para portafolio</p>
+    </footer>
+
+</body>
+</html>
